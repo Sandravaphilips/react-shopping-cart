@@ -4,6 +4,7 @@ import data from './data';
 import ProductContext from "./contexts/ProductContext";
 import  CartContext from "./contexts/CartContext";
 import CartItemContext from "./contexts/CartItemContext";
+import useLocalStorage from "./useLocalStorage";
 
 // Components
 import Navigation from './components/Navigation';
@@ -12,7 +13,7 @@ import ShoppingCart from './components/ShoppingCart';
 
 function App() {
 	const [products] = useState(data);
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useLocalStorage('key', []);
 
 	const addItem = item => {
 		setCart([...cart, item]);
@@ -40,7 +41,7 @@ function App() {
 
 						<Route
 							path="/cart"
-							component={ShoppingCart} />}
+							component={ShoppingCart} 
 						/>
 					</CartItemContext.Provider>
 					

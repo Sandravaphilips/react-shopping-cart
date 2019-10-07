@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect } from 'react';
 import CartContext from "../contexts/CartContext";
 // Components
 import Item from './ShoppingCartItem';
@@ -10,6 +10,10 @@ const ShoppingCart =() => {
 			return acc + value.price;
 		}, 0).toFixed(2);
 	};
+
+	useEffect(() => {
+		
+	})
 
 	return (
 		<div className="shopping-cart">
